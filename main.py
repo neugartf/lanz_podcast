@@ -2,9 +2,9 @@ import os
 from datetime import timedelta
 
 import ffmpeg
-from podgen import Podcast, Episode, Media
-
 import requests
+from podgen import Podcast, Episode, Media
+from tqdm import tqdm
 
 URL = 'http://lanz.neugartf.com:8080/'
 EPISODES_TO_FETCH = 6
@@ -34,7 +34,7 @@ if __name__ == '__main__':
         image=URL + 'cover.jpeg'
     )
 
-    for result in response['result']['results']:
+    for result in tqdm(response['result']['results']):
         url_video_low = result['url_video_low']
         file_name = url_video_low.split('/')[-1]
         file_name = os.path.splitext(file_name)[0]
@@ -42,10 +42,10 @@ if __name__ == '__main__':
             file = requests.get(url_video_low, allow_redirects=True)
             path_to_downloaded_video = os.path.join(THIS_FOLDER, file_name + '.mp4')
             open(path_to_downloaded_video, 'wb').write(file.content)
-            ffmpeg.input(file_name + '.mp4').output(file_name + '.mp3', ac=1).overwrite_output().run()
+            ffmpeg.input(file_name + '.mp4').output(file_name + '.mp3', ac=1).overwrite_output().run(quiet=True)
         p.episodes += [
             Episode(
-                title=result['description'],
+                title=result['title'],
                 media=Media(URL + file_name + '.mp3', os.path.getsize(file_name + '.mp3'),
                             duration=timedelta(seconds=result['duration'])),
                 summary=result['description'],
