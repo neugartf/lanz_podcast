@@ -12,7 +12,8 @@ EPISODES_TO_FETCH = 6
 if __name__ == '__main__':
     api_url = "https://mediathekviewweb.de/api/query"
 
-    payload = '{"queries": [{"fields": ["title"], "query": "#lanz *gast"}, {"fields": ["channel"], "query": ' \
+    payload = '{"queries": [{"fields": ["title"], "query": "Markus Lanz"},{"fields": ["description"], "query": "Zu ' \
+              'Gast:"}, {"fields": ["channel"], "query": ' \
               '"zdf"}], "sortBy": "timestamp", "sortOrder": "desc", "future": "false", "offset": "0", ' \
               '"size": "' + str(EPISODES_TO_FETCH) + '"}'
     headers = {
