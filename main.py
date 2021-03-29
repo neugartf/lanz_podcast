@@ -10,6 +10,8 @@ URL = 'http://lanz.neugartf.com:8080/'
 EPISODES_TO_FETCH = 6
 
 if __name__ == '__main__':
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+
     api_url = "https://mediathekviewweb.de/api/query"
 
     payload = '{"queries": [{"fields": ["title"], "query": "Markus Lanz"},{"fields": ["description"], "query": "Zu ' \
@@ -36,11 +38,11 @@ if __name__ == '__main__':
         url_video_low = result['url_video_low']
         file_name = url_video_low.split('/')[-1]
         file_name = os.path.splitext(file_name)[0]
-        file = requests.get(url_video_low, allow_redirects=True)
-        THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-        my_file = os.path.join(THIS_FOLDER, file_name + '.mp4')
-        open(my_file, 'wb').write(file.content)
-        ffmpeg.input(file_name + '.mp4').output(file_name + '.mp3', ac=1).overwrite_output().run()
+        if not os.path.isfile(os.path.join(THIS_FOLDER, file_name + '.mp3')):
+            file = requests.get(url_video_low, allow_redirects=True)
+            path_to_downloaded_video = os.path.join(THIS_FOLDER, file_name + '.mp4')
+            open(path_to_downloaded_video, 'wb').write(file.content)
+            ffmpeg.input(file_name + '.mp4').output(file_name + '.mp3', ac=1).overwrite_output().run()
         p.episodes += [
             Episode(
                 title=result['description'],
