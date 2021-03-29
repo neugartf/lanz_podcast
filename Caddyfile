@@ -1,0 +1,11 @@
+{
+    auto_https off
+    admin off
+    http_port 8080
+}
+localhost:8080
+file_server {
+    browse
+    hide .git .gitignore .idea *.yml *.py *.mp4
+}
+
