@@ -1,44 +1,20 @@
-name: lanz_podcast
+name: py36
 channels:
   - conda-forge
   - https://conda.anaconda.org/conda-forge/
   - defaults
 dependencies:
-  - bzip2=1.0.8=h1de35cc_0
-  - ca-certificates=2020.12.5=h033912b_0
-  - certifi=2020.12.5=py38h50d1736_1
-  - ffmpeg=4.2.2=h97e5cf8_0
-  - ffmpeg-python=0.2.0=py_0
-  - freetype=2.10.4=ha233b18_0
-  - gettext=0.19.8.1=hb0f4f8b_2
-  - gmp=6.2.1=h23ab428_2
-  - gnutls=3.6.5=h91ad68e_1002
-  - lame=3.100=h1de35cc_0
-  - libcxx=10.0.0=1
-  - libffi=3.3=hb1e8313_2
-  - libiconv=1.16=h1de35cc_0
-  - libopus=1.3.1=h1de35cc_0
-  - libpng=1.6.37=ha441bb4_0
-  - libvpx=1.7.0=h378b8a2_0
-  - ncurses=6.2=h0a44026_1
-  - nettle=3.4.1=h3018a27_0
-  - openh264=2.1.0=hd9629dc_0
-  - openssl=1.1.1k=h0d85af4_0
-  - pip=21.0.1=py38hecd8cb5_0
-  - python=3.8.8=h88f2d9e_4
-  - python_abi=3.8=1_cp38
-  - readline=8.1=h9ed2024_0
-  - setuptools=52.0.0=py38hecd8cb5_0
-  - sqlite=3.35.2=hce871da_0
-  - tk=8.6.10=hb0a8c7a_0
-  - wheel=0.36.2=pyhd3eb1b0_0
-  - x264=1!157.20191217=h1de35cc_0
-  - xz=5.2.5=h1de35cc_0
-  - zlib=1.2.11=h1de35cc_3
+  - ffmpeg
+  - ffmpeg-python=0.2.0
+  - libffi=3.2.1
+  - pip=21.0.1
+  - python=3.6.6
+  - readline=7.0
+  - wheel=0.36.2
+  - zlib=1.2.11
   - pip:
     - chardet==4.0.0
     - dateutils==0.6.12
-    - future==0.18.2
     - idna==2.10
     - lxml==4.6.3
     - podgen==1.1.0
