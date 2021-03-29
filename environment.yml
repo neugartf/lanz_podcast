@@ -1,17 +1,11 @@
 name: py36
 channels:
   - conda-forge
-  - https://conda.anaconda.org/conda-forge/
   - defaults
 dependencies:
-  - ffmpeg
   - ffmpeg-python=0.2.0
-  - libffi=3.2.1
   - pip=21.0.1
   - python=3.6.6
-  - readline=7.0
-  - wheel=0.36.2
-  - zlib=1.2.11
   - pip:
     - chardet==4.0.0
     - dateutils==0.6.12
