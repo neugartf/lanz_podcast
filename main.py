@@ -29,7 +29,7 @@ if __name__ == '__main__':
                     'unterhaltsam.',
         website='https://www.zdf.de/gesellschaft/markus-lanz',
         explicit=False,
-        image='https://www.zdf.de/assets/logo-markus-lanz-102~314x314?cb=1539075488568'
+        image=URL + 'cover.jpeg'
     )
 
     for result in response['result']['results']:
