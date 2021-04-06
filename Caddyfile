@@ -1,6 +1,5 @@
 {
     auto_https off
-    admin off
     http_port 8080
 }
 :8080
