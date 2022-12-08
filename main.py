@@ -39,9 +39,11 @@ if __name__ == '__main__':
         file_name = url_video_low.split('/')[-1]
         file_name = os.path.splitext(file_name)[0]
         if not os.path.isfile(os.path.join(THIS_FOLDER, file_name + '.mp3')):
+            print("downloading " + url_video_low)
             file = requests.get(url_video_low, allow_redirects=True)
             path_to_downloaded_video = os.path.join(THIS_FOLDER, file_name + '.mp4')
             open(path_to_downloaded_video, 'wb').write(file.content)
+            print("ffmpeg " + path_to_downloaded_video)
             ffmpeg.input(THIS_FOLDER + file_name + '.mp4').output(THIS_FOLDER + file_name + '.mp3', ac=1).overwrite_output().run()
         p.episodes += [
             Episode(
