@@ -6,7 +6,7 @@ import requests
 from podgen import Podcast, Episode, Media
 from tqdm import tqdm
 
-URL = 'https://lanz.neugartf.com/'
+URL = 'https://lanz-podcast.droplet.neugartf.com/'
 EPISODES_TO_FETCH = 6
 
 if __name__ == '__main__':
