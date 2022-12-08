@@ -1,14 +1,15 @@
 {
-    auto_https off
-    http_port 8080
+	auto_https off
+	http_port 8080
 }
 :8080 {
-    file_server {
-        browse
-        hide .git .gitignore .idea *.yml *.py *.mp4
-    }
-    log {
-        output file /var/log/caddy/lanz_access.log
-        format json
-    }
+    root * /code/static
+	file_server {
+		browse
+		hide .git .gitignore .idea *.yml *.py *.mp4 *.log
+	}
+	log {
+		output file lanz_access.log
+		format json
+	}
 }
