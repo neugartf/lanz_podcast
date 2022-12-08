@@ -11,7 +11,7 @@ EPISODES_TO_FETCH = 6
 
 if __name__ == '__main__':
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__)) + "/static/"
-
+    print("running in " + os.path.dirname(os.path.abspath(__file__)))
     api_url = "https://mediathekviewweb.de/api/query"
 
     payload = '{"queries": [{"fields": ["title"], "query": "Markus Lanz"},{"fields": ["description"], "query": "Zu ' \
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         explicit=False,
         image=URL + 'cover.jpeg'
     )
-    print(response)
+    print("processing results")
     for result in tqdm(response['result']['results']):
         url_video_low = result['url_video_low']
         file_name = url_video_low.split('/')[-1]
@@ -50,7 +50,7 @@ if __name__ == '__main__':
                             duration=timedelta(seconds=result['duration'])),
                 summary=result['description'],
             )]
-
+    print("writing rss feed")
     p.rss_file('static/podcast.xml', minimize=False)
 
     filelist = glob.glob(os.path.join(THIS_FOLDER, "*.mp4"))

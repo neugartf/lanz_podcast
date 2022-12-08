@@ -1,1 +1,1 @@
-*/10 * * * * python3 /code/main.py >> /logfile
+*/30 * * * * cd /code && python3 main.py >> /logfile
