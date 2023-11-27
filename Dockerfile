@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:22.04
 
 
 RUN apt update && apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
