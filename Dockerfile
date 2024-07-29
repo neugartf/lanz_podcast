@@ -7,7 +7,7 @@ RUN curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | t
 
 RUN apt-get update && apt-get install --no-install-recommends -y python3 python3-dev python3-pip python3-lxml libxml2-dev libxslt-dev ffmpeg build-essential cron caddy && \
    apt-get clean && rm -rf /var/lib/apt/lists/*
-
+RUN caddy add-package github.com/caddyserver/transform-encoder
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
