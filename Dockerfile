@@ -20,4 +20,4 @@ COPY . .
 RUN curl -L -o goatcounter.gz https://github.com/arp242/goatcounter/releases/download/v2.5.0/goatcounter-v2.5.0-linux-amd64.gz && gzip -d goatcounter.gz && chmod +x goatcounter
 RUN crontab crontab
 
-CMD ["/bin/bash", "-c", "cron && caddy start && goatcounter import --follow --format=common --site='https://neugartf.goatcounter.com' lanz_access.log"]
+CMD ["/bin/bash", "-c", "cron && caddy start && ./goatcounter import --follow --format=common --site='https://neugartf.goatcounter.com' lanz_access.log"]
