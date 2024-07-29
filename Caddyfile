@@ -10,6 +10,6 @@
 	}
 	log {
 		output file lanz_access.log
-		format json
+		format transform "{common_log}"
 	}
 }
