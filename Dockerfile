@@ -17,7 +17,7 @@ RUN mkdir /code
 WORKDIR code
 
 COPY . .
-RUN touch lanz_access.logs
+RUN touch lanz_access.log
 RUN curl -L -o goatcounter.gz https://github.com/arp242/goatcounter/releases/download/v2.5.0/goatcounter-v2.5.0-linux-amd64.gz && gzip -d goatcounter.gz && chmod +x goatcounter
 RUN crontab crontab
 
