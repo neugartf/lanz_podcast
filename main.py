@@ -14,8 +14,7 @@ if __name__ == '__main__':
     print("running in " + os.path.dirname(os.path.abspath(__file__)))
     api_url = "https://mediathekviewweb.de/api/query"
 
-    payload = '{"queries": [{"fields": ["title"], "query": "Markus Lanz"},{"fields": ["description"], "query": "Zu ' \
-              'Gast:"}, {"fields": ["channel"], "query": ' \
+    payload = '{"queries": [{"fields": ["title"], "query": "Markus Lanz vom"}, {"fields": ["channel"], "query": ' \
               '"zdf"}], "sortBy": "timestamp", "sortOrder": "desc", "future": "false", "offset": "0", ' \
               '"size": "' + str(EPISODES_TO_FETCH) + '"}'
     headers = {
